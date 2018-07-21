@@ -1,0 +1,25 @@
+{
+  "name": "less-api",
+  "version": "1.0.0",
+  "description": "API for the Less application",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nielss94/Less-API.git"
+  },
+  "author": "Less industries",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nielss94/Less-API/issues"
+  },
+  "homepage": "https://github.com/nielss94/Less-API#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0"
+  }
+}
