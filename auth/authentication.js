@@ -1,10 +1,11 @@
 const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET_KEY || 'asiudfsa';
 
-function createToken(email) {
+function createToken(email, userId) {
     const payload = {
         sub: {
-            "email": email
+            "email": email,
+            "userId": userId
         }
     }
     
@@ -19,6 +20,7 @@ function authToken(req, res, next) {
     decodeToken(input_token)
         .then((payload) => {
             req.email = payload.sub.email;
+            req.userId = payload.sub.userId;
             next();
         })
         .catch(() => {
