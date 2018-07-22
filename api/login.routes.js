@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
                         } 
                         
                         if(success){
-                            const token = auth.createToken(email);
+                            const token = auth.createToken(email, foundUser.Id);
                             res.status(200).json({
                                 "AuthorizationToken" : token
                             });
