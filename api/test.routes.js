@@ -3,13 +3,21 @@ const router = express.Router();
 const dbPool = require('../db/dbConnection');
 
 router.get('*', (req, res) => {
+
     const query = 'SELECT * from test';
 
-    dbPool.query(query, (err, results) => {
+    dbPool.getConnection((err, connection) => {
         if(err) {
-            res.sendStatus(400);
+            res.sendStatus(500);
         }
-        res.status(200).json(results);
+        connection.query(query, (err, results) => {
+            connection.release();
+            if(err) {
+                res.sendStatus(400);
+            }
+            res.status(200).json(results);
+            
+        });
     });
 });
 
