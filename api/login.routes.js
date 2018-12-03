@@ -3,7 +3,6 @@ const router = express.Router();
 const dbPool = require('../db/dbConnection');
 const auth = require('../auth/authentication');
 const bcrypt = require('bcrypt');
-const salt = bcrypt.genSaltSync(10);
 
 router.post('/', (req, res) => {
     const email = req.body.email;
@@ -31,7 +30,7 @@ router.post('/', (req, res) => {
                         } 
                         
                         if(success){
-                            const token = auth.createToken(email);
+                            const token = auth.createToken(email, foundUser.Id);
                             res.status(200).json({
                                 "AuthorizationToken" : token
                             });
