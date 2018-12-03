@@ -1,8 +1,8 @@
 const config = {
-    host     : process.env.DBHOST || 'eu-cdbr-west-02.cleardb.net',
-    user     : process.env.DBUSER || 'b8c0a9bf724fd6',
-    password : process.env.DBPASS || '51072b09',
-    database : process.env.DBNAME || 'heroku_f119942171d70eb'
+    host     : process.env.DBHOST,
+    user     : process.env.DBUSER,
+    password : process.env.DBPASS,
+    database : process.env.DBNAME
 }
 
 module.exports = config;
